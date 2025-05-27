@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta description="Site for pharmacy «Your health»">
+        <meta keywords="аптека, Аптека, за ваше здоровье, to your health, ваше здоровье, за здоровье, здоровье">
+        <title>Ваше здоровье!</title>
+        <link rel="icon" href="../../img/icons/logo.png">
+
+        <!-- main_connections -->
+        
+        <!-- основной дизайн -->
+        <link rel="stylesheet" href='../css/style.css'>
+        <!-- дизайн "пожилой арбуз" -->
+        <!-- <link rel="stylesheet" href='../css/style-alter.css'> -->
+        <!-- основной дизайн с scss -->
+        <!-- <link rel="stylesheet" href='../css/style-changed.css'> -->
+
+        <!-- шрифты -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+        <!-- внедрение -->
+        <style>
+            @media only screen and (max-width: 1200px) {
+                #about .float-text:has(+.float-image) > h3 {
+                    width: auto !important;
+                    margin-bottom: 30px !important;
+                }
+                #about .float-text + .float-image >  img{
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+
+            @media only screen and (max-width: 992px) {
+                /* поведение сетки ссылок на страницы */
+                #footer .down-panel .grid-container {
+                    display: flex !important;
+                    flex-flow: column !important;
+                }
+
+                #pills {
+                    display: none !important;
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                /* поведение верхней панели, панели контактов и вложенных контейнеров */
+                :is(#header, #footer) .up-panel .flex-standart, .flex-standart .flex-standart {
+                    flex-direction: row !important;
+                } .logo {
+                    display: none !important;
+                }
+
+                /* поведение контейнеров на маленьких экранах */
+                .flex-standart {
+                    flex-direction: column !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <article class="up-panel">
+                <section>
+                    <div class="flex-standart plr-standart">
+                        <div class="flex-img-text g-5">
+                            <input id="location-button" type="image" src="../../img/icons/location.png" height="65px"/>
+                            <h3 class="dim">Москва</h3>
+                        </div>
+                        <img class='logo' src="../../img/icons/logo_with_text.png">
+                        <h3 class="dim">+7 (391) 221-94-20</h3>
+                    </div> 
+                </section>
+                <section class="standart-line"></section>
+            </article>
+            <article class="down-panel">
+                <section id="navigation">
+                    <div class="flex-standart plr-standart">
+                        <a href="#popular"><h2 class="underlined">Популярное</h2></a>
+                        <a href="#special"><h2 class="underlined">Спецпредложения</h2></a>
+                        <a href="#delivery"><h2 class="underlined">Доставка</h2></a>
+                        <a href="#about"><h2 class="underlined">О нас</h2></a>
+                    </div>
+                </section>
+                <section class="big-line"></section>
+            </article>
+        </header>
+        
+        <!-- встраивание -->
+        <article id="real-header" style="background-color: var(--main-background);position: sticky;z-index: 100;top: 0px;">
+            <section id="help">
+                <div class="flex-standart plr-standart flex-start g-15">
+                    <div class="flex-img-text g-10">
+                        <input id="catalogue-button" type="image" src="../../img/icons/catalogue.png" height="55px">
+                        <h3>Каталог</h3>
+                    </div>
+                    <form id="search" height="40px">
+                        <fieldset class="flex-img-text g-10">
+                            <img src="../../img/icons/search.png" height="30px">
+                            <input class='dim' type="text" name="product" placeholder="Введите название товара или предложения">
+                        </fieldset>
+                    </form>
+                    <div id="user-buttons" class="flex-standart g-20 align-up">
+                        <input id='bascet-button' class='icon-standart' type="image" src="../../img/icons/basket.png">
+                        <input id='favourites-button' class='icon-standart' type="image" src="../../img/icons/favourites.png">
+                        <input id='lk-button' class='icon-standart delete' onclick="window.location.href='../../4/html/index.html';" type="image" src="../../img/icons/lk.png">
+                    </div>
+                </div>
+            </section>
+            <section class="big-line"></section>
+        </article>
+
+
+
+        <!-- отступ main, встраивание обеспечит лучшую видимость-->
+        <main>
+            <article id="popular">
+                <div class="product-block">
+                    <h1>Популярные товары</h1>
+                    <div class="flex-start g-15 hidden">
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/457/200_200_photo_es_E9FEBE41-923C-41CC-98E7-D4A7863C72CE.jpg">
+                                    <div class="name big-text">Фосфалюгель гель для приема внутрь пак. 16г 20шт</div>
+                                    <div class="country small-text dim">Франция, Фарматис</div>
+                                    <div class="in-stock small-text underlined">В наличии в 11 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">554</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/477/600_600_photo_es_72880144-88EB-4E50-BAE7-C0B56D89FD50.jpg">
+                                    <div class="name big-text">Цетрин таблетки п/о плен. 10мг 20шт</div>
+                                    <div class="country small-text dim">Индия, Dr. Reddy's lab</div>
+                                    <div class="in-stock small-text underlined">В наличии в 16 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">178</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/afb/600_600_photo_es_191EE353-1DF3-491F-B817-E2900BF78878.jpg">
+                                    <div class="name big-text">Пенталгин таблетки п/о плен. 12шт</div>
+                                    <div class="country small-text dim">Российская Федерация, Фармстандарт</div>
+                                    <div class="in-stock small-text underlined">В наличии в 14 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">98</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/7c8/600_600_photo_es_379AFB3F-0E5A-4572-BD07-87D1F15F31DA.jpg">
+                                    <div class="name big-text">Лизобакт таблетки для рассасывания 30шт</div>
+                                    <div class="country small-text dim">Босния и Герцеговина, Bosnalijek</div>
+                                    <div class="in-stock small-text underlined">В наличии в 7 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">327</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/246/600_600_photo_es_C2A2862C-C24C-5093-1E05-3060F2C0AA1C.jpg">
+                                    <div class="name big-text">Магне В6 таблетки п/о 180шт</div>
+                                    <div class="country small-text dim">Венгрия, Опелла Хелскеа</div>
+                                    <div class="in-stock small-text underlined">В наличии в 0 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">1298</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/733/600_600_photo_es_4849A031-9FC5-4AFB-8943-CAA30CFDDC2C.jpg">
+                                    <div class="name big-text">Хилак Форте капли для внутреннего применения 100мл</div>
+                                    <div class="country small-text dim">Германия, Merckle GmbH</div>
+                                    <div class="in-stock small-text underlined">В наличии в 8 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">817</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/bc2/600_600_photo_es_CBEA5E68-86F1-7A96-EE05-3DE0A030AC22.jpg">
+                                    <div class="name big-text">Аквадетрим витамин Д капли для приема внутрь 15000МЕ/мл 15мл</div>
+                                    <div class="country small-text dim">Польша, Польфарма АО</div>
+                                    <div class="in-stock small-text underlined">В наличии в 13 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">295</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="product">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <input class="do-favourite icon-small" type="image" src="../../img/icons/do_favourite.png">
+                                    <img class='product-standart' src="https://static.zdravcity.ru/upload/iblock/f5a/600_600_photo_es_7967F95B-BA0C-98DC-BE05-3E40A030A46C.jpg">
+                                    <div class="name big-text">Канефрон Н таблетки п/о 60шт</div>
+                                    <div class="country small-text dim">Германия, Роттендорф Фарма ГмбХ/Бионорика СЕ</div>
+                                    <div class="in-stock small-text underlined">В наличии в 0 аптеках</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <div class="price-container">
+                                        <span class="price-tag small-text underlined">Цена</span>
+                                        <div class="for-price">
+                                            <h1 class="price">701</h1>
+                                        </div>
+                                    </div>
+                                    <button class="buy-button">Купить</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="scroll-buttons">
+                        <input id='pop-left-arrow' class="left-arrow" type="image" src="../../img/icons/left_arrow.png">
+                        <input id='pop-right-arrow' class="right-arrow" type="image" src="../../img/icons/right_arrow.png">
+                    </div>
+                </div>
+            </article>
+
+            <article id="special">
+                <div class="product-block">
+                    <h1>Спецпредложения</h1>
+                    <div class="flex-start g-15 hidden">
+                        <section class="offer">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <img class='product-standart' src="https://cdn.eapteka.ru/upload/mb_promotion_images/b5c/0b1f10a965f0c5ef2e493b8d828b7c5b.png?_cvc=1710863634">
+                                    <div class="name big-text">Акция на Дифендум</div>
+                                    <div class="date small-text dim">16 марта 2024 - 31 марта 2024</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <button class="check-button">Посмотреть</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="offer">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <img class='product-standart' src="https://cdn.eapteka.ru/upload/resize_cache/mb_promotion_images/cb4/528_680_1/6621c0dd10e21c4ec2d235081e5f118d.png?_cvc=1710863634">
+                                    <div class="name big-text">Худеем со вкусом! Скидка 10% на жиросжигающие комплексы Леовит</div>
+                                    <div class="date small-text dim">01 марта 2024 - 31 марта 2024</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <button class="check-button">Посмотреть</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="offer">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <img class='product-standart' src="https://cdn.eapteka.ru/upload/resize_cache/mb_promotion_images/912/720_318_1/7e054fc331e5fe5e9e50ccd37ecf6932.png?_cvc=1710863634">
+                                    <div class="name big-text">Месяц красоты</div>
+                                    <div class="date small-text dim">01 марта 2024 - 31 марта 2024</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <button class="check-button">Посмотреть</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="offer">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <img class='product-standart' src="https://cdn.eapteka.ru/upload/mb_promotion_images/f2d/de683bfdd1cddffcbff9998d383693f1.png?_cvc=1710863634">
+                                    <div class="name big-text">Бренд месяца Лормарин.</div>
+                                    <div class="date small-text dim">01 марта 2024 - 31 марта 2024</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <button class="check-button">Посмотреть</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="offer">
+                            <div class="flex-product-offer">
+                                <div class="flex-product-offer g-10">
+                                    <img class='product-standart' src="https://cdn.eapteka.ru/upload/resize_cache/mb_promotion_images/a23/700_240_1/1a392bedf7440604a3ff0cc9310a3f02.png?_cvc=1711468760">
+                                    <div class="name big-text">Скидка 10% при покупке 2-х упаковок Венапрокт Алиум</div>
+                                    <div class="date small-text dim">01 января 2024 - 31 марта 2024</div>
+                                </div>
+                                <div class="flex-product-offer g-15 press-to-end">
+                                    <button class="check-button">Посмотреть</button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="scroll-buttons">
+                        <input id='special-left-arrow' class="left-arrow" type="image" src="../../img/icons/left_arrow.png">
+                        <input id='special-right-arrow' class="right-arrow" type="image" src="../../img/icons/right_arrow.png">
+                    </div>
+                </div>
+            </article>
+
+            <article id="delivery">
+                <div class="text-block">
+                    <h1>Доставка</h1>
+                    <section class="up-panel">
+                        <div class="float-text">
+                            <h2>Доставим на дом лекарства!</h2>
+                            <div>
+                                Мы ежедневно проверяем самочувствие всех курьеров и <br>
+                                на входе выдаем им новые медицинские маски, перчатки и антисептики.
+                            </div>
+                        </div>
+                        <div id='pills' class="not-important float-image">
+                            <img src="../../img/pills.png" height="114px">
+                        </div>
+                    </section>
+                    <div class="clear clear-margin"></div>
+                    <section class="down-panel">
+                        <div class="float-image">
+                            <img src="../../img/delivery.jpg" height="200px">
+                        </div>
+                        <div class="float-text">
+                            <ul>
+                                <li class="big-text">Товар может быть возвращен только в момент доставки</li>
+                                <li class="big-text">Возможна бесконтактная доставка</li>
+                                <li class="big-text">Доставка рецептурных препаратов осуществляется при наличии электронного рецепта</li>
+                                <li class="big-text">Доставка осуществляется ежедневно, без выходных</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <div class="clear"></div>
+                </div>
+            </article>
+
+            <article id="about">
+                <div class="text-block">
+                    <h1>О нас</h1>
+                    <section class="up-panel">
+                        <div class="float-text">
+                            <h3 style="overflow: auto;">
+                                Аптека “Ваше здоровье” – это надежный и проверенный партнер в обеспечении качественными медикаментами и товаромедицинскими изделиями уже с 2013 года. Наша миссия заключается в предоставлении нашим клиентам доступа к эффективным и безопасным средствам для поддержания здоровья и качественного обслуживания.
+                            </h3>
+                        </div>
+                        <div class="float-image">
+                            <img src="../../img/about_us.jpg" height="400px">
+                        </div>
+                    </section>
+                    <div class="clear clear-margin"></div>
+                    <section class="down-panel">
+                        <div>
+                            <p>Компания “Ваше здоровье” имеет широкий ассортимент продукции, включая лекарственные препараты, биодобавки, витамины, средства гигиены и ухода, медицинские приборы и другие товары, необходимые для заботы о состоянии здоровья. Мы тесно сотрудничаем с ведущими производителями и дистрибьюторами, что позволяет нам предлагать клиентам только сертифицированные продукты высокого качества.</p>
+                            <p>Наш персонал – это команда профессионалов, готовых оказать квалифицированную консультацию и помощь в выборе необходимых средств. Мы ценим каждого клиента и стремимся к тому, чтобы их покупки были приятными и удобными. Для этого у нас действует система скидок, акций, а также возможность оформления заказа онлайн и доставки по нужному адресу.</p>
+                            <p>Aптека “Ваше здоровье” – это надежный партнер на пути к заботе о здоровье и благополучии. Мы гордимся своей репутацией и стремимся к развитию, чтобы стать еще ближе к нашим клиентам и помочь каждому сохранить здоровье и активный образ жизни.</p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </main>
+
+
+
+        <footer id="footer">
+            <article class="up-panel">
+                <section id="contacts">
+                    <div class="flex-standart plr-standart">
+                        <div class="flex-img-text g-15">
+                            <input id="vk-button" class='icon-standart' type="image" src="../../img/icons/vk.png">
+                            <span class="big-text">Наш Вконтакте</span>
+                        </div>
+                        <img class="logo" src="../../img/icons/logo_with_text.png">
+                        <div class="flex-img-text g-15">
+                            <input id="tg-button" class='icon-standart' type="image" src="../../img/icons/tg.png">
+                            <span class="big-text">Наш Телеграм</span>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <section class="standart-line"></section>
+            <article class="down-panel">
+                <section id="links">
+                    <div class="grid-container plr-standart">
+                        <div class="chapter">
+                            <h1>Информация</h1>
+                            <ul>
+                                <li><a href="#header"><h2>О компании</a></h2></li>
+                                <li><a href="#header"><h2>Пользовательское соглашение</a></h2></li>
+                                <li><a href="#header"><h2>Лицензия</a></h2></li>
+                                <li><a href="#header"><h2>Сотрудничество</a></h2></li>
+                            </ul>
+                        </div>
+                        <div class="chapter">
+                            <h1>Покупателю</h1>
+                            <ul>
+                                <li><a href="#header"><h2>Доставка</a></h2></li>
+                                <li><a href="#header"><h2>Самовывоз из аптек</a></h2></li>
+                                <li><a href="#header"><h2>Акции</a></h2></li>
+                                <li><a href="#header"><h2>Товары по категориям</a></h2></li>
+                            </ul>
+                        </div>
+                        <div class="chapter">
+                            <h1>Дополнительно</h1>
+                            <ul>
+                                <li><a href="#header"><h2>Статьи</a></h2></li>
+                                <li><a href="#header"><h2>Вакансии</a></h2></li>
+                                <li><a href="#header"><h2>Программа лояльности</a></h2></li>
+                                <li><a href="#header"><h2>Реклама на сайте</a></h2></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <section class="dim-line"></section>
+            <article id="org-inf">
+                <h3 class="dim">© 2024 ООО «Ваше здоровье», ИНН __________ ОГРН _____________<h3>
+            </article>
+            <!-- нужно по тз -->
+            <article id="other-sites">
+                <section class="dim-line"></section>
+                <div class="flex-standart">
+                    <a href="https://sklad-zdorovo.ru/krasnoyarsk/">
+                        <h2>zdorovo</h2>
+                    </a>
+                    <a href="https://zdravcity.ru/">
+                        <h2>zdravcity</h2>
+                    </a>
+                    <a href="https://www.eapteka.ru/">
+                        <h2>eapteka</h2>
+                    </a>
+                </div>
+            </article>
+        </footer>
+    </body>
+
+</html>

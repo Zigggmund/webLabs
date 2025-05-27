@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta description="Site for pharmacy «Your health»">
+        <meta keywords="аптека, Аптека, за ваше здоровье, to your health, ваше здоровье, за здоровье, здоровье">
+        <title>Ваше здоровье!</title>
+        <link rel="icon" href="../../img/icons/logo.png">
+
+        <!-- main_connections -->
+        
+        <!-- основной дизайн -->
+        <link rel="stylesheet" href='../css/style.css'>
+        <!-- дизайн "пожилой арбуз" -->
+        <!-- <link rel="stylesheet" href='../css/style-alter.css'> -->
+        <!-- основной дизайн с scss -->
+        <!-- <link rel="stylesheet" href='../css/style-changed.css'> -->
+
+        <!-- additional_connections -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+        <!-- шрифты -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Average+Sans&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+        <!-- внедрение -->
+        <style>
+            @media only screen and (max-width: 1200px) {
+                #about .float-text:has(+.float-image) > h3 {
+                    width: auto !important;
+                    margin-bottom: 30px !important;
+                }
+                #about .float-text + .float-image >  img{
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+
+            @media only screen and (max-width: 992px) {
+                /* поведение сетки ссылок на страницы */
+                #footer .down-panel .grid-container {
+                    display: flex !important;
+                    flex-flow: column !important;
+                }
+
+                #pills {
+                    display: none !important;
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                /* поведение верхней панели и вложенных контейнеров */
+                :is(#header, #footer) .up-panel .flex-standart, .flex-standart .flex-standart {
+                    flex-direction: row !important;
+                } .logo {
+                    display: none !important;
+                }
+
+                /* поведение контейнеров на маленьких экранах */
+                .flex-standart {
+                    flex-direction: column !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <article class="up-panel">
+                <section>
+                    <div class="flex-standart plr-standart">
+                        <div class="flex-img-text g-5">
+                            <input id="location-button" type="image" src="../../img/icons/location.png" height="65px"/>
+                            <h3 class="dim">Москва</h3>
+                        </div>
+                        <button id='button-to-main-page' onclick="window.location.href='../../6-10/html/index.html';"><h1>На главную страницу</h1></button>
+                        <h3 class="dim">+7 (391) 221-94-20</h3>
+                    </div> 
+                </section>
+                <section class="standart-line"></section>
+            </article>
+            <article class="down-panel">
+                <section id="navigation">
+                    <!-- НАВИГАЦИОННОЕ МЕНЮ -->
+                    <ul class="nav justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#personal-info"><h2 class="underlined">Персональная информация</h2></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#addresses"><h2 class="underlined">Адреса для доставки</h2></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#programms"><h2 class="underlined">Программы лояльности</h2></a>
+                        </li>
+                </section>
+                </section>
+                <section class="big-line"></section>
+            </article>
+        </header>
+        
+        <article id="real-header" style="background-color: var(--main-background);position: sticky;z-index: 100;top: 0px;">
+            <section id="help">
+                <div class="flex-standart plr-standart g-15">
+                    <div class="flex-img-text g-10">
+                        <input id="catalogue-button" type="image" src="../../img/icons/catalogue.png" height="55px">
+                        <h3>Каталог</h3>
+                    </div>
+                    <form id="search" height="40px">
+                        <fieldset class="flex-img-text g-10">
+                            <img src="../../img/icons/search.png" height="30px">
+                            <input class='dim' type="text" name="product" placeholder="Введите название товара или предложения">
+                        </fieldset>
+                    </form>
+                    <div id="user-buttons" class="flex-standart g-20">
+                        <input id='bascet-button' class='icon-standart' type="image" src="../../img/icons/basket.png">
+                        <input id='favourites-button' class='icon-standart' type="image" src="../../img/icons/favourites.png">
+                        <div class="flex-img-text g-5 delete-padding">
+                            <input id='lk-button' class='icon-standart delete' type="image" src="../../img/icons/lk.png">
+                            <span id='current-page' class="big-text">Личный <br>кабинет</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="big-line"></section>
+        </article>
+
+
+
+        <main>
+            <!-- padding bootstrap не подходит, слишком малый -->
+            <article id="personal-info">
+                <div class="text-block container col-sm-12 col-md-11 col-lg-11 position-relative">
+                    <h1 class="text-center">Персональная информация</h1>
+                    <section id='left-info' class="col-5 float-start g-20">
+                        <div class="form-block">
+                            <h3 class="dim pl-1">Имя</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="Введите свое имя" required>
+                        </div>
+                        <div class="form-block">
+                            <h3 class="dim">Фамилия</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="Введите свою фамилию" required>
+                        </div>
+                        <div class="form-block">
+                            <h3 class="dim">Отчество</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="Введите свое отчество" required>
+                        </div>
+                        <div class="form-block">
+                            <h3 class="dim">Телефон</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="---" required>
+                        </div>
+                    </section>
+                    <section id='right-info' class="col-5 float-end g-20">
+                        <div class="form-block">
+                            <h3 class="dim">Пол</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="Мужской" required>
+                        </div>
+                        <div class="form-block">
+                            <h3 class="dim">Дата рождения</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="01.01.01" required>
+                        </div>
+                        <div class="form-block">
+                            <h3 class="dim">Email</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="@mail.ru" required>
+                        </div>
+                        <div class="form-block">
+                            <h3 class="dim">Пароль</h3>
+                            <input type="text" class="form-control bg-custom-bright" placeholder="******" required>
+                        </div>
+                    </section>
+                    <div class="clearfix"></div>
+                </div>
+            </article>
+
+            <article id="addresses">
+                <div class="text-block container text-center col-sm-12 col-md-11 col-lg-11 position-relative">
+                    <h1 class="text-center">Адреса для доставки</h1>
+                    <div class="table-responsive">
+                        <table class="table table-bordered overflow-auto" style="width: fit-content">
+                            <thead class="big-text">
+                                <tr>
+                                    <th>№</th>
+                                    <th>Субъект</th>
+                                    <th>Район</th>
+                                    <th>Город/населенный пункт</th>
+                                    <th>Улица</th>
+                                    <th>Дом</th>
+                                    <th>Квартира</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <th>Московская область</th>
+                                    <th>Московский район</th>
+                                    <th>Москва</th>
+                                    <th>Улица-1</th>
+                                    <th>24</th>
+                                    <th>5</th>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <th>Московская область</th>
+                                    <th>Московский район</th>
+                                    <th>Москва</th>
+                                    <th>Улица-2</th>
+                                    <th>2</th>
+                                    <th>1</th>
+                                </tr>
+                                <!-- адрес доставки по умолчанию -->
+                                <tr class="table-active">
+                                    <th>3</th>
+                                    <th>Московская область</th>
+                                    <th>Московский район</th>
+                                    <th>Москва</th>
+                                    <th>Улица-3</th>
+                                    <th>8</th>
+                                    <th>185</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <button id='add-adress-button' class="btn btn-primary mt-5"  onclick="window.location.href='index-form.html';">
+                            <h3>Добавить адрес</h3>
+                        </button>
+                    </div>
+            </article>
+
+            <article id="programms">
+                <div class="text-block container col-sm-12 col-md-11 col-lg-11 position-relative">
+                    <h1 class="text-center">Программы лояльности</h1>
+                    <div class="d-flex justify-content-start flex-row align-items-center g-15" style="max-height: 80px;">
+                        <h3 class="underlined">Накоплено бонусных баллов: </h3>
+                        <h1 class='pt-4'>1219</h1>
+                    </div>
+                </div>
+            </article>
+
+
+
+        <footer id="footer">
+            <article class="up-panel">
+                <section id="contacts">
+                    <div class="flex-standart plr-standart">
+                        <div class="flex-img-text g-20">
+                            <input id="vk-button" class='icon-standart' type="image" src="../../img/icons/vk.png">
+                            <span class="big-text">Наш Вконтакте</span>
+                        </div>
+                        <img class="logo" src="../../img/icons/logo_with_text.png" onclick="window.location.href='../../6-10/html/index-form.html';" style="cursor: pointer;">
+                        <div class="flex-img-text g-15">
+                            <input id="tg-button" class='icon-standart' type="image" src="../../img/icons/tg.png">
+                            <span class="big-text">Наш Телеграм</span>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <section class="standart-line"></section>
+            <article class="down-panel">
+                <section id="links">
+                    <div class="grid-container plr-standart">
+                        <div class="chapter">
+                            <h1>Информация</h1>
+                            <ul>
+                                <li><a href="#header"><h2>О компании</a></h2></li>
+                                <li><a href="#header"><h2>Пользовательское соглашение</a></h2></li>
+                                <li><a href="#header"><h2>Лицензия</a></h2></li>
+                                <li><a href="#header"><h2>Сотрудничество</a></h2></li>
+                            </ul>
+                        </div>
+                        <div class="chapter">
+                            <h1>Покупателю</h1>
+                            <ul>
+                                <li><a href="#header"><h2>Доставка</a></h2></li>
+                                <li><a href="#header"><h2>Самовывоз из аптек</a></h2></li>
+                                <li><a href="#header"><h2>Акции</a></h2></li>
+                                <li><a href="#header"><h2>Товары по категориям</a></h2></li>
+                            </ul>
+                        </div>
+                        <div class="chapter">
+                            <h1>Дополнительно</h1>
+                            <ul>
+                                <li><a href="#header"><h2>Статьи</a></h2></li>
+                                <li><a href="#header"><h2>Вакансии</a></h2></li>
+                                <li><a href="#header"><h2>Программа лояльности</a></h2></li>
+                                <li><a href="#header"><h2>Реклама на сайте</a></h2></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </article>
+            <section class="dim-line"></section>
+            <article id="org-inf">
+                <h3 class="dim">© 2024 ООО «Ваше здоровье», ИНН __________ ОГРН _____________<h3>
+            </article>
+            <!-- нужно по тз -->
+            <article id="other-sites">
+                <section class="dim-line"></section>
+                <div class="flex-standart">
+                    <a href="https://sklad-zdorovo.ru/krasnoyarsk/">
+                        <h2>zdorovo</h2>
+                    </a>
+                    <a href="https://zdravcity.ru/">
+                        <h2>zdravcity</h2>
+                    </a>
+                    <a href="https://www.eapteka.ru/">
+                        <h2>eapteka</h2>
+                    </a>
+                </div>
+            </article>
+        </footer>
+
+        <script src="../js/script.js"></script>
+    </body>
+
+</html>

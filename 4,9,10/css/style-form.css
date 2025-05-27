@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+:root {
+  --main-text: #252222;
+  --main-link: #00A2E8;
+  --main-title: #0377C0;
+  --main-background: #FCF9FD;
+
+  --button-clicked: color-mix(in srgb, black 20%, var(--main-link));
+  --dark-form-background: color-mix(in srgb, black 15%, var(--main-link));
+  --form-background: color-mix(in srgb, white 85%, var(--main-link));
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Average Sans", sans-serif;
+  color: var(--main-text);
+  font-size: 18px;
+  
+  background-image: url("../../img/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  min-height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* цветовая палитра */
+h1 {
+  color: var(--main-title);
+} .input-group {
+  border: 1px solid var(--main-title);
+} .input-group > div > * {
+  background-color: var(--form-background);
+}.btn {
+  background-color: var(--main-link) !important;
+}
+#all-forms .input-group-prepend {
+  width: 213px;
+  background-color: var(--dark-form-background);
+}#all-forms span {
+  font-weight: 500 !important;
+  color: var(--main-title) !important;
+} .btn-warning {
+  border: 1px solid var(--main-title) !important;
+}
+
+input[type='checkbox'] {
+  height: 1.5em;
+  width: 1.5em;
+  margin-right: 30px;
+} #default-address {
+  text-align: left !important;
+}

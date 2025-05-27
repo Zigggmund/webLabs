@@ -1,0 +1,454 @@
+
+// переменные
+$main-text: #252222;
+$main-link: #00A2E8;
+$main-title: #0377C0;
+$main-background: #FCF9FD;
+$main-line: color-mix(in srgb, $main-title 50%, $main-text);
+    
+$button-clicked: color-mix(in srgb, black 20%, $main-link);;
+$product-offer: white;
+$special-link: #FF6B00;
+$special-button-clicked: color-mix(in srgb, black 20%, $special-link);;
+$dim-text: color-mix(in srgb, $main-background 40%, $main-text);
+
+
+body {
+    font-family: "Average Sans", sans-serif;
+    color: $main-text;
+    font-size: 18px;
+
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+main {
+    background-image: url('../../img/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#header, #footer, #real-header {
+    font-family: "Josefin Sans", sans-serif !important;
+    background-color: $main-background !important;
+}
+
+h1, h2, h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    /* margin-inline-start: auto;
+    margin-inline-end: auto; */
+} h1 {
+    font-size: 40px;
+    font-weight: 500;
+    color: $main-title;
+} :is(#header, #footer){
+    h1 {
+        color: $main-text;
+    }
+    .up-panel {
+        .flex-standart {
+            > * {
+                max-height: 80px;
+            }
+        }
+    }
+} h2 {
+    font-size: 30px;
+    /* h3 - для ссылок */
+    color: $main-link;
+} h3 {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+a {
+    color: $main-link;
+    text-decoration:none;
+} 
+
+button {
+    cursor: pointer;
+    &:active {
+        transition: 0.1s;
+    }
+}
+
+/* header */
+
+#header {
+    .up-panel {
+        .flex-standart {
+            > :not(.logo, div), > div > * {
+                padding-top: 5px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+    .down-panel {
+        .flex-standart {
+            > :not(.logo, div), > div > * {
+                padding-top: 20px;
+                padding-bottom: 30px;
+            }
+        }
+    }
+}
+
+#real-header {
+    #help {
+        .flex-standart {
+            > *{
+                max-height: 85px;
+            }
+            > :not(.logo, div), > div > * {
+                padding-top: 10px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+    #search {
+        width: 100%;
+        fieldset {
+            border-radius: 20px;
+            border: 2px solid $main-link;
+        }
+        input {
+            height: 30px;
+            border: 0;
+            font-size: 20px;
+            font-family: "Average Sans", sans-serif;
+            background-color: $main-background;
+            width: 100%
+        }
+    }
+}
+
+/* main-classes */
+
+@mixin flexible(){
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.plr-standart {
+    padding-left: 30px;
+    padding-right: 30px;
+} .flex-standart {
+    @include flexible();
+    justify-content: space-between;
+    align-items: center;
+} .flex-img-text {
+    @include flexible();
+    align-items: center;
+} .flex-start {
+    @include flexible();
+    /* !important для search панели */
+    justify-content: start !important;
+    align-items: center;
+} .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+} .flex-product-offer {
+    @include flexible();
+    flex-direction: column;
+    height: 100% !important;
+} 
+
+// 5px, 10px, 15px, 20px
+@for $i from 1 to 5 {
+    $base: 5;
+    $gap: $i * $base;
+    .g-#{$gap} {
+        gap: $gap + 0px !important;
+    }
+} 
+
+/* вспомогательные классы */
+.align-up {
+    align-items: start !important;
+} .delete-padding {
+    padding: 0px !important;
+} .hidden {
+    overflow: hidden;
+} .press-to-end {
+    justify-content: end !important;
+}
+
+@mixin draw-line($height, $color) {
+    content: '';
+    display: block;
+    width: 100%;
+    background-color: $color;
+    height: $height;
+}
+.standart-line {
+    @include draw-line(2px, $main-line)
+}.big-line {
+    @include draw-line(5px, $main-title)
+} .dim-line {
+    @include draw-line(1px, $dim-text)
+}
+
+.icon-small {
+    height: 30px;
+}.icon-standart {
+    height: 47px;
+} .product-standart {
+    height: 184px;
+} .special-standart {
+    height: 200px;
+}
+
+.dim {
+    color: $dim-text !important;
+} .small-text {
+    font-size: 14px;
+} .big-text {
+    font-size: 20px
+}
+
+.bordered {
+    border: 2px solid $main-title;
+} .underlined {
+    text-decoration: underline !important;
+}
+
+/* main */
+
+@mixin block($plr) {
+    background-color: $main-background;
+    border-radius: 20px;
+    padding: 20px $plr 40px;
+
+    text-align: start;
+    position: relative;
+
+    > h1 {
+        text-align: center !important;
+    } 
+}
+
+@mixin arrow($direction) {
+    height: 50px;
+    width: 50px;
+
+    position: absolute;
+    #{$direction}: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+
+    @if $direction == "left" {
+        display: none;
+    }
+}
+
+@mixin item-button($background, $background-clicked) {
+    height: 30px;
+    width: 100%;
+    font-size: 20px !important;
+    color: $product-offer;
+    border-radius: 10px;
+    border: 0px;
+
+    background-color: $background;
+    &:active {
+        background-color: $background-clicked !important;
+    }
+}
+
+@mixin ad($height, $width) {
+    background-color: $product-offer;
+    border: 2px solid $main-title;
+    border-radius: 10px;
+    padding: 8px 8px 15px;
+    position: relative;
+
+    height: $height;
+    width: $width
+}
+
+main {
+    article {
+        &:first-child {
+            padding-top: 100px !important;
+        }
+        &:last-child {
+            padding-bottom: 100px !important;
+        }
+    }
+    > * {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 60px;
+    }
+    h1:not(.price) {
+        padding-bottom: 30px; 
+    }
+    #popular {
+        .product-block {
+            @include block(70px);
+
+            .left-arrow {
+                @include arrow("left")
+            } .right-arrow {
+                @include arrow("right")
+            }
+            .product {
+                @include ad(500px, 200px);
+
+                .name {
+                    margin-top: -5px;
+                }
+                .buy-button {
+                    @include item-button($main-link, $button-clicked);
+                }
+                .do-favourite {
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                }
+                .price-container {
+                    display: flex;
+                    width: 100% !important;
+
+                    .price-tag {
+                        padding-top: 1.5em !important;
+                    }
+                    .for-price {
+                        width: 100% !important;
+                        text-align: center !important;
+                    }
+                }
+            }
+        }
+    }
+    #special {
+        .product-block {
+            @include block(70px);
+
+            .left-arrow {
+                @include arrow("left")
+            } .right-arrow {
+                @include arrow("right")
+            }
+            .offer {
+                @include ad(350px, 370px);
+
+                .name {
+                    margin-top: -5px;
+                }
+                .check-button {
+                    @include item-button($special-link, $special-button-clicked);
+                }
+            }
+        }
+    }
+    #delivery {
+        .text-block {
+            @include block(30px);
+        } 
+        h2 {
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: $main-text !important;
+        }
+        ul {
+            > li {
+                margin-top: 10px;
+            }
+        }
+        :is(.up-panel, .down-panel) {
+            > * {
+                &:first-child {
+                    float:left;
+                    margin-left: 0 !important;
+                    margin-right: 30px !important;
+                }
+                &:last-child {
+                    float:right;
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+    #about {
+        .text-block {
+            @include block(30px);
+
+            .float-text:has(+.float-image){
+                > h3 {
+                    position: relative;
+                    width: 420px;
+                }
+            }
+            .up-panel {
+                > * {
+                    &:first-child {
+                        margin-right: 30px !important;
+                        margin-left: 0 !important;
+                        float:left;
+                    }
+                    &:last-child {
+                        float:right;
+                        margin-right: 0 !important;
+                    }
+                }
+            }
+        } 
+    }
+}
+    
+
+.float-image:not(.not-important) {
+    border: 2px solid $main-title;
+    /* не работает, если не указывать ширину, появляется отступ снизу */
+    /* width: auto;
+    padding: 0 !important; */
+} .clear {
+    clear: both;
+} .clear-margin {
+    margin-bottom: 30px;
+} 
+
+/* footer */
+
+#footer {
+    .up-panel {
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+    .down-panel {
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        .chapter{
+            gap: 30px;
+            margin: 0;
+
+            ul {
+                margin-right: auto;
+                margin-left: auto;
+
+                li::marker {
+                font-size: 3em;
+                color: $main-link
+                }
+            }
+        }
+    }
+    
+    
+    #org-inf {
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+    }
+    /* нужно по тз, но не нужно сайту */
+    #other-sites {
+        display: none;
+    }
+}

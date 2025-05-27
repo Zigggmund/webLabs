@@ -1,0 +1,295 @@
+:root {
+  --main-text: #252222;
+  --main-link: #00A2E8;
+  --main-title: #0377C0;
+  --main-background: #FCF9FD;
+  --main-line: color-mix(in srgb, var(--main-title) 50%, var(--main-text));
+  
+  --button-clicked: color-mix(in srgb, black 20%, var(--main-link));;
+  --special-button-clicked: color-mix(in srgb, black 20%, var(--special-link));;
+  --product-offer: white;
+  --special-link: #FF6B00;
+  --dim-text: color-mix(in srgb, var(--main-background) 40%, var(--main-text));
+  --form-background: color-mix(in srgb, white 85%, var(--main-link));
+}
+
+body {
+  font-family: "Average Sans", sans-serif;
+  color: var(--main-text);
+  font-size: 18px;
+
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+main {
+  background-image: url('../../img/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#header, #footer, #real-header {
+  font-family: "Josefin Sans", sans-serif !important;
+  background-color: var(--main-background) !important;
+}
+
+h1, h2, h3 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  /* margin-inline-start: auto;
+  margin-inline-end: auto; */
+} h1 {
+  font-weight: 500 !important;
+  color: var(--main-title);
+} /* для адаптивности верхней кнопки */ :not(#button-to-main-page) > h1 {
+  font-size: 40px !important;
+} #footer h1{
+  color: var(--main-text);
+} h2 {
+  font-size: 30px !important;
+  /* h3 - для ссылок */
+  color: var(--main-link);
+} /* исключение */ #delivery h2 {
+  margin-bottom: 30px;
+  font-weight: 300 !important;
+  color: var(--main-text) !important;
+}h3 {
+  font-size: 24px !important;
+  font-weight: 300 !important;
+}
+
+a {
+  color: var(--main-link) !important;
+  text-decoration:none;
+} 
+
+button {
+  cursor: pointer;
+} button:active {
+  transition: 0.1s;
+} .btn-primary {
+  background-color: var(--main-link) !important;
+  font-weight: 500 !important;
+}
+
+/* header */
+
+:is(#header, #footer) .up-panel .flex-standart > *{
+  max-height: 80px;
+} 
+/* общая контструкция для блоков */
+#header .up-panel .flex-standart > :not(div, button), #header .up-panel .flex-standart > div > * {
+  padding-top: 5px;
+  padding-bottom: 10px;
+} #button-to-main-page {
+  padding: auto;
+  background-color: white;
+  border: 2px solid var(--main-title);
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* появляется лишний отступ
+.up-panel:after {
+  content: '';
+  display: block;
+  background-color: var(--main-line);
+
+  height: 2px;
+  width: 100%;
+} */
+
+.nav {
+  padding-top: 20px;
+  padding-bottom: 30px;
+} 
+/*ошибка с размером иконок*/ 
+#help .flex-standart > :not(.flex-standart) {
+  padding-top: 10px;
+  padding-bottom: 20px;
+} #help .flex-standart > .flex-standart > * {
+  padding-top: 0px;
+  padding-bottom: 0px;
+} #help .flex-standart > *{
+  max-height: 85px;
+} #user-buttons, #user-buttons > div{
+  align-items: start !important;
+}
+#search {
+  width: 100%;
+} #search fieldset {
+  border-radius: 20px;
+  border: 2px solid var(--main-link);
+  height: 53.5px;
+  padding-right: 5px !important;
+} #search input {
+  height: 30px;
+  border: 0;
+  font-size: 20px;
+  font-family: "Average Sans", sans-serif;
+  background-color: var(--main-background);
+  width: 100%
+} #lk-button {
+  pointer-events: none;
+  filter: brightness(60%)
+} #current-page {
+  filter: brightness(60%);
+  color: var(--main-title) !important;
+}
+
+/* main-classes */
+
+.plr-standart {
+  padding-left: 30px;
+  padding-right: 30px;
+} .flex-standart {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+} .flex-img-text {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.g-5 {
+  gap: 5px !important;
+} .g-10 {
+  gap: 10px !important;
+} .g-15 {
+  gap: 15px !important;
+} .g-20 {
+  gap: 20px !important;
+}
+
+/* вспомогательные классы */
+.align-up {
+  align-items: start !important;
+} .delete-padding {
+  padding: 0px !important;
+} .hidden {
+  overflow: hidden;
+} .press-to-end {
+  justify-content: end !important;
+}
+
+/*это место для миксина в дальнейшем*/
+.standart-line, .big-line, .dim-line {
+  content: '';
+  display: block;
+  width: 100%;
+} .standart-line {
+  background-color: var(--main-line);
+  height: 2px;
+}.big-line {
+  background-color: var(--main-title);
+  height: 5px;
+} .dim-line {
+  background-color: var(--dim-text);
+  height: 1px;
+}
+
+.icon-small {
+  height: 30px;
+}.icon-standart {
+  height: 47px;
+} .product-standart {
+  height: 184px;
+} .special-standart {
+  height: 200px;
+}
+
+.dim {
+  color: var(--dim-text) !important;
+} .small-text {
+  font-size: 14px;
+} .big-text {
+  font-size: 20px
+}
+
+.bordered {
+  border: 2px solid var(--main-title);
+} .underlined {
+  text-decoration: underline !important;
+}
+
+/* main */
+
+main article:first-child {
+  padding-top: 100px !important;
+} main article:last-child {
+  padding-bottom: 100px !important;
+} main > * {
+  padding-bottom: 60px;
+} main h1:not(.bonus) {
+  padding-bottom: 30px; 
+}
+.text-block {
+  background-color: var(--main-background);
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+}
+
+#personal-info .form-block {
+  padding-bottom: 20px;
+} #personal-info .form-block:last-child {
+  padding-bottom: 0px !important;
+  padding-top: 30px;
+}
+:is(#left-info, #right-info) input {
+  border: 1px solid var(--main-title);
+  background-color: var(--form-background);
+}
+
+/* для крестиков */
+#addresses th {
+  vertical-align: middle;
+}
+#addresses thead, #addresses thead tr {
+  color: var(--main-title) !important;
+  border: 3px solid var(--main-text) !important;
+} #addresses table { 
+  white-space: nowrap;
+} #addresses thead th#addresses tr > th:first-child{
+  width: 60px !important;
+  min-width: 60px !important;
+} #addresses th {
+  min-width: 220px;
+  border: 1px solid var(--main-text);
+} /*через bootstrap не работает*/ #addresses #add-adress-button {
+  padding: 5px 20px;
+}
+
+/* footer */
+
+#footer .up-panel {
+  padding-top: 30px;
+  padding-bottom: 40px;
+} #footer .down-panel {
+  padding-top: 30px;
+  padding-bottom: 30px;
+} #footer .down-panel .chapter{
+  gap: 30px;
+  margin: 0;
+} #footer .down-panel .chapter ul {
+  margin-right: auto;
+  margin-left: auto;
+} #footer .down-panel .chapter ul li::marker {
+  font-size: 3em;
+  color: var(--main-link)
+}
+
+#org-inf {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+/* нужно по тз, но не нужно сайту */
+#other-sites {
+  display: none;
+}
